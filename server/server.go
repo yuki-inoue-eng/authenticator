@@ -37,7 +37,6 @@ func New(ctx context.Context, cfg configs.Configs) Server {
 	if err != nil {
 		panic(fmt.Errorf("failed to generate repositories: %v", err))
 	}
-
 	handler := handlers.NewHandlers(*repositories)
 
 	// Routes
