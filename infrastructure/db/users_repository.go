@@ -8,17 +8,17 @@ import (
 	"gorm.io/gorm"
 )
 
-type UsersRepository struct {
+type usersRepository struct {
 	ConnPool *MySQL
 }
 
-func NewUsersRepository() repositories.UserRepository{
-	return UsersRepository{
+func newUsersRepository() repositories.UserRepository{
+	return usersRepository{
 		ConnPool: ConPool,
 	}
 }
 
-func (r UsersRepository) Register(user models.User) error {
+func (r usersRepository) Register(user models.User) error {
 	result := r.ConnPool.Con.Create(user)
 	if result.Error != nil {
 		return result.Error
@@ -26,7 +26,7 @@ func (r UsersRepository) Register(user models.User) error {
 	return nil
 }
 
-func (r UsersRepository) User(loginID string) (*models.User, error) {
+func (r usersRepository) User(loginID string) (*models.User, error) {
 	u := models.User{}
 	result := r.ConnPool.Con.Model(u).Where("login_id = ?", loginID).First(u)
 	if result.Error != nil {

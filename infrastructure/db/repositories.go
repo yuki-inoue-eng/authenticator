@@ -13,6 +13,6 @@ func NewRepositories(ctx context.Context, configs configs.Configs) (*repositorie
 		return nil, fmt.Errorf("failed to establish db connection: %v", err)
 	}
 	return &repositories.Repositories{
-		UserRepository: NewUsersRepository(),
+		UserRepository: newUsersRepository(),
 	}, nil
 }
