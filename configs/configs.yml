@@ -1,0 +1,14 @@
+server:
+  port: 1323
+  shutdown_wait_time: 1
+database:
+  host_name: localhost
+  port: 3306
+  user_name: DB_USER_NAME
+  user_password: DB_USER_PASSWORD
+  name: Authenticator # database name
+  max_open_connection: 10
+  max_idle_connection: 5
+  max_life_time: 24
+jwt:
+  exp: 24 # hour
